@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+begin
+  require 'mdspell'
+rescue LoadError
+  # For running in development without bundler
+  $LOAD_PATH << File.expand_path('../lib', File.dirname(__FILE__))
+  require 'mdspell'
+end
+
+MdSpell.run

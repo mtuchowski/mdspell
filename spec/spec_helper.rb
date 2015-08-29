@@ -47,4 +47,10 @@ RSpec.configure do |config|
   # to use `--seed` to deterministically reproduce test failures related to randomization
   # by passing the same `--seed` value as the one that triggered the failure.
   Kernel.srand config.seed
+
+  # Allow filtering specs with `focus: true`.
+  config.filter_run focus: true
+
+  # Run all specs if none are filtered.
+  config.run_all_when_everything_filtered = true
 end

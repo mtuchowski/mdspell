@@ -49,6 +49,7 @@ GEM
       equalizer (~> 0.0.9)
       parser (~> 2.2.2)
       procto (~> 0.0.2)
+    yard (0.8.7.6)
 
 PLATFORMS
   ruby
@@ -58,6 +59,7 @@ DEPENDENCIES
   rake (= 10.4.2)
   reek (= 3.1)
   rubocop (= 0.32.1)
+  yard (= 0.8.7.6)
 
 BUNDLED WITH
    1.10.6

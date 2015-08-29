@@ -1,0 +1,8 @@
+--title 'mdspell API Documentation'
+--charset utf-8
+--markup markdown
+--no-private
+--default-return void
+-
+lib/**/*.rb
+LICENSE

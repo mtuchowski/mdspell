@@ -20,3 +20,14 @@ namespace :docs do
     system 'mdl . -gws config/mdl'
   end
 end
+
+desc 'delete generated files'
+task :clobber do
+  sh 'rm -rf .yardoc'
+  sh 'rm -rf doc'
+end
+
+desc 'generate rdoc'
+task :rdoc do
+  sh 'yardoc'
+end

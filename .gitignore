@@ -1,3 +1,6 @@
 # YARD generated files.
 .yardoc/
 doc/
+
+# RSpec status persistence file.
+spec/examples.cache

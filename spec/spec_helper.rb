@@ -30,4 +30,8 @@ RSpec.configure do |config|
     # This is generally recommended, and will default to `true` in RSpec 4.
     mocks.verify_partial_doubles = true
   end
+
+  # Allows RSpec to persist some state between runs in order to support the `--only-failures` and
+  # `--next-failure` CLI options. Source control system should be configured to ignore this file.
+  config.example_status_persistence_file_path = 'spec/examples.cache'
 end

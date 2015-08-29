@@ -1,7 +1,9 @@
 source 'https://rubygems.org'
 
 gem 'rake', '10.4.2'
+
 gem 'mixlib-cli', '1.5.0'
+gem 'mixlib-config', '2.2.1'
 
 gem 'rspec', '3.3.0'
 

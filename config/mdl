@@ -1,0 +1,3 @@
+# Mdl tool configuration used by rake docs:lint command.
+all
+rule 'MD013', line_length: 99

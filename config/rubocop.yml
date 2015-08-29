@@ -1,0 +1,8 @@
+---
+# RuboCop tool configuration used by rake lint:style command.
+AllCops:
+  DisplayCopNames: true
+
+Metrics/LineLength:
+  Max: 99
+...

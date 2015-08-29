@@ -7,6 +7,12 @@ module MdSpell
 
     banner "Usage: #{File.basename($PROGRAM_NAME)} [options] [FILE.md|DIR ...]"
 
+    option :verbose,
+           short: '-v',
+           long: '--[no-]verbose',
+           description: 'Be more/less verbose',
+           boolean: true
+
     option :version,
            on: :tail,
            short: '-V',

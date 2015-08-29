@@ -1,5 +1,8 @@
 # MdSpell
 
+[![Build Status](https://travis-ci.org/mtuchowski/mdspell.svg)](
+https://travis-ci.org/mtuchowski/mdspell)
+
 A Ruby markdown spell checking tool.
 
 ## MIT Licensed

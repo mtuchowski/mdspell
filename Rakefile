@@ -1,5 +1,6 @@
 require 'rubocop/rake_task'
 require 'reek/rake/task'
+require 'rspec/core/rake_task'
 
 namespace :lint do
   RuboCop::RakeTask.new('style') do |task|
@@ -19,6 +20,11 @@ namespace :docs do
   task :lint do
     system 'mdl . -gws config/mdl'
   end
+end
+
+RSpec::Core::RakeTask.new('spec') do |task|
+  task.rspec_opts    = '--options config/rspec'
+  task.fail_on_error = false
 end
 
 desc 'delete generated files'

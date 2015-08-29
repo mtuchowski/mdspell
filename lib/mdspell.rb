@@ -2,6 +2,8 @@ require 'mdspell/cli'
 require 'mdspell/configuration'
 require 'mdspell/version'
 
+require 'rainbow'
+
 # This module holds all the MdSpell code (except mdspell shell command).
 module MdSpell
   def self.run
@@ -17,7 +19,17 @@ module MdSpell
     cli.cli_arguments.flatten!
 
     cli.cli_arguments.each do |filename|
-      puts "Spell-checking #{filename}..." if Configuration[:verbose]
+      verbose "Spell-checking #{filename}..."
     end
   end
+
+  def self.verbose(str)
+    puts str if Configuration[:verbose]
+  end
+  private_class_method :verbose
+
+  def self.error(str)
+    puts Rainbow(str).red
+  end
+  private_class_method :error
 end

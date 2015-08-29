@@ -71,6 +71,7 @@ DEPENDENCIES
   mdl (= 0.2.1)
   mixlib-cli (= 1.5.0)
   mixlib-config (= 2.2.1)
+  rainbow (= 2.0.0)
   rake (= 10.4.2)
   reek (= 3.1)
   rspec (= 3.3.0)

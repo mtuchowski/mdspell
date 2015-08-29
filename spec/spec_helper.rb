@@ -37,4 +37,14 @@ RSpec.configure do |config|
   # Allows RSpec to persist some state between runs in order to support the `--only-failures` and
   # `--next-failure` CLI options. Source control system should be configured to ignore this file.
   config.example_status_persistence_file_path = 'spec/examples.cache'
+
+  # Run specs in random order to surface order dependencies. To debug an order dependency after
+  # finding one, fix the order by providing the seed, which is printed after each run.
+  #     --seed 1234
+  config.order = :random
+
+  # Seed global randomization in this process using the `--seed` CLI option. Setting this allows
+  # to use `--seed` to deterministically reproduce test failures related to randomization
+  # by passing the same `--seed` value as the one that triggered the failure.
+  Kernel.srand config.seed
 end

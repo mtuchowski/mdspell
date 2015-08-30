@@ -47,6 +47,29 @@ module MdSpell
       self
     end
 
+    # Scan Kramdown::Document for TextLines.
+    # @param document [Kramdown::Document]
+    def self.scan(document)
+      results = []
+
+      get_all_textual_elements(document.root.children).each do |element|
+        matching_element_found = results.any? do |text_element|
+          if text_element.location == element.options[:location]
+            text_element << element
+            true
+          else
+            false
+          end
+        end
+
+        unless matching_element_found
+          results << TextLine.new(element)
+        end
+      end
+
+      results
+    end
+
     private
 
     def append_text(value)
@@ -69,8 +92,24 @@ module MdSpell
       end
     end
 
+    # Private class methods
+
     def self.assert_element_type(elem)
       fail ArgumentError, 'expected Kramdown::Element' unless elem.instance_of? Kramdown::Element
+    end
+
+    def self.get_all_textual_elements(elements)
+      result = []
+
+      elements.each do |element|
+        if ELEMENT_TYPES.include? element.type
+          result << element
+        else
+          result |= get_all_textual_elements(element.children)
+        end
+      end
+
+      result
     end
   end
 end

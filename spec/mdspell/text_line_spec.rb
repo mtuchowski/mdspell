@@ -92,4 +92,22 @@ describe MdSpell::TextLine do
       end
     end
   end
+
+  context '::scan' do
+    let(:simple_md) { Kramdown::Document.new(File.read('spec/examples/simple.md'), input: 'GFM') }
+
+    it 'should expect Kramdown::Document as argument' do
+      expect { MdSpell::TextLine.scan }. to raise_error ArgumentError
+    end
+
+    it 'should find proper lines' do
+      lines = MdSpell::TextLine.scan(simple_md)
+
+      expect(lines).to have(3).items
+
+      expect(lines[0].content).to eq 'Simple'
+      expect(lines[1].content).to eq 'markdown'
+      expect(lines[2].content).to eq 'file'
+    end
+  end
 end

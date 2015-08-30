@@ -1,4 +1,7 @@
 require 'kramdown'
+require 'ffi/aspell'
+
+require_relative 'configuration'
 
 module MdSpell
   # A class for finding spelling errors in document.
@@ -18,7 +21,19 @@ module MdSpell
 
     # Returns found spelling errors.
     def typos
-      []
+      results = []
+
+      FFI::Aspell::Speller.open(Configuration[:language]) do |speller|
+        TextLine.scan(document).each do |line|
+          line.words.each do |word|
+            unless speller.correct? word
+              results << Typo.new(line, word, speller.suggestions(word))
+            end
+          end
+        end
+      end
+
+      results
     end
   end
 end

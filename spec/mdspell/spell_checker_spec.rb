@@ -42,7 +42,7 @@ describe MdSpell::SpellChecker do
     end
 
     it 'should return proper results' do
-      typos = subject.typos
+      typos = with_errors.typos
 
       expect(typos).to have(4).items
       expect(typos[0].word).to eq 'mispelled'

@@ -2,6 +2,7 @@ require 'mdspell/cli'
 require 'mdspell/configuration'
 require 'mdspell/spell_checker'
 require 'mdspell/text_line'
+require 'mdspell/typo'
 require 'mdspell/version'
 
 require 'rainbow'
@@ -25,7 +26,7 @@ module MdSpell
       verbose "Spell-checking #{filename}..."
 
       SpellChecker.new(filename).typos.each do |typo|
-        error "#{filename}:#{typo.line}: #{typo.word}"
+        error "#{filename}:#{typo.line.location}: #{typo.word}"
       end
     end
   end

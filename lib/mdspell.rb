@@ -1,6 +1,7 @@
 require 'mdspell/cli'
 require 'mdspell/configuration'
 require 'mdspell/spell_checker'
+require 'mdspell/text_line'
 require 'mdspell/version'
 
 require 'rainbow'

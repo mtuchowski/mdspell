@@ -18,4 +18,4 @@ gem 'mdl', '0.2.1'
 
 gem 'yard', '0.8.7.6'
 
-gem "codeclimate-test-reporter", group: :test, require: nil
+gem 'codeclimate-test-reporter', group: :test, require: nil

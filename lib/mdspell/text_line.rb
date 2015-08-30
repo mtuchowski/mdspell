@@ -62,9 +62,7 @@ module MdSpell
           end
         end
 
-        unless matching_element_found
-          results << TextLine.new(element)
-        end
+        results << TextLine.new(element) unless matching_element_found
       end
 
       results

@@ -44,5 +44,15 @@ module MdSpell
       # Store command line configuration options.
       MdSpell::Configuration.merge!(config)
     end
+
+    # List of markdown files from argument list.
+    def files
+      cli_arguments.each_with_index do |filename, index|
+        if Dir.exist?(filename)
+          cli_arguments[index] = Dir["#{filename}/**/*.md"]
+        end
+      end
+      cli_arguments.flatten!
+    end
   end
 end

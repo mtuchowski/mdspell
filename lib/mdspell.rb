@@ -15,9 +15,9 @@ module MdSpell
 
     # Spell-check each file.
     cli.files.each do |filename|
-      verbose "Spell-checking #{filename}..."
-
       spell_checker = SpellChecker.new(filename)
+
+      verbose "Spell-checking #{spell_checker.filename}..."
 
       spell_checker.typos.each do |typo|
         error "#{spell_checker.filename}:#{typo.line.location}: #{typo.word}"

@@ -33,6 +33,8 @@ module MdSpell
            exit: 0
 
     def run(argv = ARGV)
+      fail ArgumentError, 'expected Array of command line options' unless argv.is_a? Array
+
       parse_options(argv)
 
       # Load optional config file if it's present.
@@ -53,6 +55,7 @@ module MdSpell
         end
       end
       cli_arguments.flatten!
+      cli_arguments
     end
   end
 end

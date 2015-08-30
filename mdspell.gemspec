@@ -21,6 +21,6 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '>= 2.0.0'
 
-  s.add_dependency 'kramdown', '>= 1.8.0'
-  s.add_dependency 'ffi-aspell', '>= 1.1.0'
+  s.add_runtime_dependency 'kramdown', '~ 1.8'
+  s.add_runtime_dependency 'ffi-aspell', '~ 1.1'
 end

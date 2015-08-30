@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rake', '10.4.2'
+gem 'rspec-collection_matchers', '1.1.2'
 
 gem 'rainbow', '2.0.0'
 gem 'mixlib-cli', '1.5.0'

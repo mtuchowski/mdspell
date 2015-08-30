@@ -11,6 +11,9 @@
 # The `.rspec` file also contains a few flags that are not defaults but that are commonly wanted.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+
+require 'rspec/collection_matchers'
+
 RSpec.configure do |config|
   # rspec-expectations config goes here.
   config.expect_with :rspec do |expectations|

@@ -17,8 +17,10 @@ module MdSpell
     cli.files.each do |filename|
       verbose "Spell-checking #{filename}..."
 
-      SpellChecker.new(filename).typos.each do |typo|
-        error "#{filename}:#{typo.line.location}: #{typo.word}"
+      spell_checker = SpellChecker.new(filename)
+
+      spell_checker.typos.each do |typo|
+        error "#{spell_checker.filename}:#{typo.line.location}: #{typo.word}"
       end
     end
   end

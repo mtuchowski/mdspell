@@ -15,8 +15,15 @@ module MdSpell
     # Create a new instance from specified file.
     # @param filename [String] a name of file to load.
     def initialize(filename)
-      @filename = filename
-      @document = Kramdown::Document.new(File.read(filename), input: 'GFM')
+      if filename == '-'
+        @filename = 'stdin'
+        text = STDIN.read
+      else
+        @filename = filename
+        text = File.read(filename)
+      end
+
+      @document = Kramdown::Document.new(text, input: 'GFM')
     end
 
     # Returns found spelling errors.

@@ -3,6 +3,10 @@ describe MdSpell::Configuration do
     MdSpell::Configuration.reset
   end
 
+  after(:all) do
+    MdSpell::Configuration.reset
+  end
+
   def run_app(args = [])
     MdSpell::CLI.new.run(args)
   end

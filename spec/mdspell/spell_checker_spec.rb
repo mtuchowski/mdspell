@@ -37,7 +37,7 @@ describe MdSpell::SpellChecker do
 
     context 'if initialized from stdin' do
       it "should return 'stdin'" do
-        expect(stdin_md.filename).to eq 'stdin'
+        expect(from_stdin.filename).to eq 'stdin'
       end
     end
   end

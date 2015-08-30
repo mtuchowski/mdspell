@@ -24,6 +24,13 @@ describe MdSpell::Configuration do
         expect(MdSpell::Configuration[:config_file]).to eq 'long'
       end
     end
+
+    context 'if file exists' do
+      it 'should merge its content' do
+        run_app(['-c', 'spec/examples/mdspell.config'])
+        expect(MdSpell::Configuration[:language]).to eq 'pl'
+      end
+    end
   end
 
   context ':language' do

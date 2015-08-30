@@ -10,21 +10,18 @@ module MdSpell
     option :config_file,
            short: '-c FILE',
            long: '--config FILE',
-           description: 'The configuration file to use',
-           default: '~/.mdspell'
+           description: 'The configuration file to use'
 
     option :language,
            short: '-l LANG',
            long: '--language LANG',
-           description: 'Set documents language',
-           default: 'en_US'
+           description: 'Set documents language'
 
     option :verbose,
            short: '-v',
            long: '--[no-]verbose',
            description: 'Be more/less verbose',
-           boolean: true,
-           default: false
+           boolean: true
 
     option :version,
            on: :tail,
@@ -33,15 +30,16 @@ module MdSpell
            description: 'Show version',
            boolean: true,
            proc: proc { puts MdSpell::VERSION },
-           exit: 0,
-           default: MdSpell::VERSION
+           exit: 0
 
     def run(argv = ARGV)
       parse_options(argv)
 
       # Load optional config file if it's present.
-      config_filename = File.expand_path(config[:config_file])
-      MdSpell::Configuration.from_file(config_filename) if File.exist?(config_filename)
+      if config[:config_file]
+        config_filename = File.expand_path(config[:config_file])
+        MdSpell::Configuration.from_file(config_filename) if File.exist?(config_filename)
+      end
 
       # Store command line configuration options.
       MdSpell::Configuration.merge!(config)

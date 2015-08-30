@@ -1,5 +1,6 @@
 require 'mdspell/cli'
 require 'mdspell/configuration'
+require 'mdspell/spell_checker'
 require 'mdspell/version'
 
 require 'rainbow'
@@ -18,10 +19,17 @@ module MdSpell
     end
     cli.cli_arguments.flatten!
 
+    # Spell-check each file.
     cli.cli_arguments.each do |filename|
       verbose "Spell-checking #{filename}..."
+
+      SpellChecker.new(filename).typos.each do |typo|
+        error "#{filename}:#{typo.line}: #{typo.word}"
+      end
     end
   end
+
+  # Private class methods
 
   def self.verbose(str)
     puts str if Configuration[:verbose]

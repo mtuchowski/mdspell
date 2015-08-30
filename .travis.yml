@@ -23,4 +23,7 @@ matrix:
     - rvm: jruby
     - rvm: jruby-head
     - rvm: ruby-head
+addons:
+  code_climate:
+    repo_token: 39bba5a92bbd8942dbe7a7a49757088cb639e800268b77b709904135a64e5a5f
 ...

@@ -8,13 +8,13 @@ module MdSpell
     banner "Usage: #{File.basename($PROGRAM_NAME)} [options] [FILE.md|DIR ...]"
 
     option :config_file,
-           short: '-c',
+           short: '-c FILE',
            long: '--config FILE',
            description: 'The configuration file to use',
            default: '~/.mdspell'
 
     option :language,
-           short: '-l',
+           short: '-l LANG',
            long: '--language LANG',
            description: 'Set documents language',
            default: 'en_US'

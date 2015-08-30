@@ -14,8 +14,7 @@ Gem::Specification.new do |s|
   s.extra_rdoc_files = %w(README.md LICENSE)
 
   # Manifest
-  s.files            = Dir.glob('lib/**/*')
-  s.files            += Dir.glob('bin/**/*')
+  s.files            = Dir.glob('{lib,bin}/**/*')
   s.test_files       = Dir.glob('{spec}/**/*')
   s.require_paths    = ['lib']
 

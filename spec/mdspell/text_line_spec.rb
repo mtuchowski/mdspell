@@ -1,5 +1,3 @@
-require 'mdspell/text_line'
-
 describe MdSpell::TextLine do
   let(:md_p_element) { Kramdown::Element.new(:p) }
   let(:md_header_element) { Kramdown::Element.new(:header) }

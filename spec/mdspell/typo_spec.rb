@@ -1,5 +1,3 @@
-require 'mdspell/typo'
-
 describe MdSpell::Typo do
   let(:text_line) do
     MdSpell::TextLine.new(Kramdown::Element.new(:text, 'black rabit', nil, location: 42))

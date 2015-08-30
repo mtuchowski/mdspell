@@ -17,7 +17,11 @@ require 'codeclimate-test-reporter'
 
 CodeClimate::TestReporter.start
 
+# For checking arrays.
 require 'rspec/collection_matchers'
+
+# The whole lib is not that big, requiring it here cleans up the specs a little bit.
+require 'mdspell'
 
 RSpec.configure do |config|
   # rspec-expectations config goes here.

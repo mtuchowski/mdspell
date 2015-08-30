@@ -1,5 +1,3 @@
-require 'mdspell/spell_checker'
-
 describe MdSpell::SpellChecker do
   let(:simple) { MdSpell::SpellChecker.new('spec/examples/simple.md') }
   let(:with_errors) { MdSpell::SpellChecker.new('spec/examples/with_errors.md') }

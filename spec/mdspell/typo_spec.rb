@@ -19,11 +19,11 @@ describe MdSpell::Typo do
     it 'should expect TextLine as first argument' do
       expect do
         MdSpell::Typo.new(nil, misspelled_word, [suggested_word])
-      end.to raise_error ArgumentError
+      end.to raise_error ArgumentError, 'expected TextLine, got NilClass'
 
       expect do
         MdSpell::Typo.new('black rabit', misspelled_word, [suggested_word])
-      end.to raise_error ArgumentError
+      end.to raise_error ArgumentError, 'expected TextLine, got String'
 
       expect do
         MdSpell::Typo.new(text_line, misspelled_word, [suggested_word])
@@ -31,8 +31,13 @@ describe MdSpell::Typo do
     end
 
     it 'should expect word as second argument' do
-      expect { MdSpell::Typo.new(text_line, nil, [suggested_word]) }.to raise_error ArgumentError
-      expect { MdSpell::Typo.new(text_line, :c, [suggested_word]) }.to raise_error ArgumentError
+      expect do
+        MdSpell::Typo.new(text_line, nil, [suggested_word])
+      end.to raise_error ArgumentError, 'expected String, got NilClass'
+
+      expect do
+        MdSpell::Typo.new(text_line, :c, [suggested_word])
+      end.to raise_error ArgumentError, 'expected String, got Symbol'
 
       expect do
         MdSpell::Typo.new(text_line, misspelled_word, [suggested_word])
@@ -40,8 +45,13 @@ describe MdSpell::Typo do
     end
 
     it 'should expect array as third argument' do
-      expect { MdSpell::Typo.new(text_line, misspelled_word, nil) }.to raise_error ArgumentError
-      expect { MdSpell::Typo.new(text_line, misspelled_word, 'a') }.to raise_error ArgumentError
+      expect do
+        MdSpell::Typo.new(text_line, misspelled_word, nil)
+      end.to raise_error ArgumentError, 'expected Array, got NilClass'
+
+      expect do
+        MdSpell::Typo.new(text_line, misspelled_word, 'a')
+      end.to raise_error ArgumentError, 'expected Array, got String'
 
       expect { MdSpell::Typo.new(text_line, misspelled_word, []) }.not_to raise_error
       expect do

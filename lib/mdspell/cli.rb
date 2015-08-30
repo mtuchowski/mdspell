@@ -23,7 +23,8 @@ module MdSpell
            short: '-v',
            long: '--[no-]verbose',
            description: 'Be more/less verbose',
-           boolean: true
+           boolean: true,
+           default: false
 
     option :version,
            on: :tail,
@@ -32,7 +33,8 @@ module MdSpell
            description: 'Show version',
            boolean: true,
            proc: proc { puts MdSpell::VERSION },
-           exit: 0
+           exit: 0,
+           default: MdSpell::VERSION
 
     def run(argv = ARGV)
       parse_options(argv)

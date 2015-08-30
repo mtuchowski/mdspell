@@ -1,6 +1,10 @@
 describe MdSpell::SpellChecker do
   let(:simple) { MdSpell::SpellChecker.new('spec/examples/simple.md') }
   let(:with_errors) { MdSpell::SpellChecker.new('spec/examples/with_errors.md') }
+  let(:from_stdin) do
+    allow(STDIN).to receive(:read) { '# Header' }
+    MdSpell::SpellChecker.new('-')
+  end
 
   context 'attributes' do
     subject { simple }
@@ -18,12 +22,23 @@ describe MdSpell::SpellChecker do
     it 'should fail if given wrong filename' do
       expect { MdSpell::SpellChecker.new('not_existing.md') }.to raise_error Errno::ENOENT
     end
+
+    it "should read from stdin if given '-' as filename" do
+      allow(STDIN).to receive(:read) { '# Header' }
+      expect { MdSpell::SpellChecker.new('-') }.not_to raise_error
+    end
   end
 
   context '#filename' do
     it 'should return proper path' do
       expect(simple.filename).to eq 'spec/examples/simple.md'
       expect(with_errors.filename).to eq 'spec/examples/with_errors.md'
+    end
+
+    context 'if initialized from stdin' do
+      it "should return 'stdin'" do
+        expect(stdin_md.filename).to eq 'stdin'
+      end
     end
   end
 
@@ -37,6 +52,7 @@ describe MdSpell::SpellChecker do
   context '#typos' do
     it 'should return empty array if there are no errors' do
       expect(simple.typos).to have(0).items
+      expect(from_stdin.typos).to have(0).items
     end
 
     it 'should return proper results' do

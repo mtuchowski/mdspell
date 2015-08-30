@@ -13,6 +13,12 @@ module MdSpell
            description: 'The configuration file to use',
            default: '~/.mdspell'
 
+    option :language,
+           short: '-l',
+           long: '--language LANG',
+           description: 'Set documents language',
+           default: 'en_US'
+
     option :verbose,
            short: '-v',
            long: '--[no-]verbose',

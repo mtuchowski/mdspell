@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 gem 'rake', '10.4.2'
 gem 'rspec-collection_matchers', '1.1.2'
 
+gem 'kramdown', '1.8.0'
+
 gem 'rainbow', '2.0.0'
 gem 'mixlib-cli', '1.5.0'
 gem 'mixlib-config', '2.2.1'

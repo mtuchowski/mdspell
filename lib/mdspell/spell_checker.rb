@@ -1,7 +1,7 @@
+require_relative 'configuration'
+
 require 'kramdown'
 require 'ffi/aspell'
-
-require_relative 'configuration'
 
 module MdSpell
   # A class for finding spelling errors in document.

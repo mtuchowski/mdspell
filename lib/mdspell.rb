@@ -1,9 +1,9 @@
-require 'mdspell/cli'
-require 'mdspell/configuration'
-require 'mdspell/spell_checker'
-require 'mdspell/text_line'
-require 'mdspell/typo'
-require 'mdspell/version'
+require_relative 'mdspell/cli'
+require_relative 'mdspell/configuration'
+require_relative 'mdspell/spell_checker'
+require_relative 'mdspell/text_line'
+require_relative 'mdspell/typo'
+require_relative 'mdspell/version'
 
 require 'rainbow'
 

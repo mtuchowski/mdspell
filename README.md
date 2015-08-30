@@ -1,5 +1,6 @@
 # MdSpell
 
+[![Gem Version](https://badge.fury.io/rb/mdspell.svg)](http://badge.fury.io/rb/mdspell)
 [![Build Status](https://travis-ci.org/mtuchowski/mdspell.svg)](
 https://travis-ci.org/mtuchowski/mdspell)
 [![Code Climate](https://codeclimate.com/github/mtuchowski/mdspell/badges/gpa.svg)](

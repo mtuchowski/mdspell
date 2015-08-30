@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name             = 'mdspell'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
 
   s.author           = 'Marek Tuchowski'
   s.email            = 'marek@tuchowski.com.pl'

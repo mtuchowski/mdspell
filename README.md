@@ -15,7 +15,16 @@ A Ruby markdown spell checking tool.
 To install from [rubygems.org](http://rubygems.org/), run:
 
 ```console
-gem install mdspell
+$ gem install mdspell
+```
+
+On top of that, make sure that [GNU Aspell](http://aspell.net/) is installed on the system:
+
+```console
+# Ubuntu
+$ sudo apt-get install aspell
+# Arch Linux
+$ sudo pacman -S aspell
 ```
 
 ## Usage
@@ -23,19 +32,18 @@ gem install mdspell
 To spell-check markdown files, simply run `mdspell` with the filenames as a parameter:
 
 ```console
-mdspell README.md
+$ mdspell README.md
 ```
 
 To check all markdown files within the directory:
 
 ```console
-mdspell docs/
+$ mdspell docs/
 ```
 
 For each spelling error found, MdSpell will display the misspelled word, filename and line number:
 
 ```console
-Spell-checking ./README.md...
 ./README.md:10: actualy
 ```
 

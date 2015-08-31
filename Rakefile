@@ -24,7 +24,7 @@ end
 
 RSpec::Core::RakeTask.new('spec') do |task|
   task.rspec_opts    = '--options config/rspec'
-  task.fail_on_error = false
+  task.fail_on_error = true
 end
 
 desc 'delete generated files'

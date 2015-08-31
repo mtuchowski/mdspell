@@ -29,21 +29,23 @@ describe MdSpell::CLI do
     context 'if directory given' do
       it 'should return all markdown files in that directory' do
         subject.run(['spec/examples'])
-        expect(subject.files).to have(2).item
+        expect(subject.files).to have(3).item
 
-        expect(subject.files).to include('spec/examples/with_errors.md')
         expect(subject.files).to include('spec/examples/simple.md')
+        expect(subject.files).to include('spec/examples/complete.md')
+        expect(subject.files).to include('spec/examples/with_errors.md')
       end
     end
 
     context 'if both directory and single file given' do
       it 'should return all files' do
         subject.run(['README.md', 'spec/examples'])
-        expect(subject.files).to have(3).item
+        expect(subject.files).to have(4).item
 
-        expect(subject.files).to include('spec/examples/with_errors.md')
-        expect(subject.files).to include('spec/examples/simple.md')
         expect(subject.files).to include('README.md')
+        expect(subject.files).to include('spec/examples/simple.md')
+        expect(subject.files).to include('spec/examples/complete.md')
+        expect(subject.files).to include('spec/examples/with_errors.md')
       end
     end
   end

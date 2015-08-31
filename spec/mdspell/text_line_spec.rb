@@ -92,20 +92,35 @@ describe MdSpell::TextLine do
   end
 
   context '::scan' do
-    let(:simple_md) { Kramdown::Document.new(File.read('spec/examples/simple.md'), input: 'GFM') }
+    let(:complete_md) { Kramdown::Document.new(File.read('spec/examples/complete.md'), input: 'GFM') }
 
     it 'should expect Kramdown::Document as argument' do
       expect { MdSpell::TextLine.scan }. to raise_error ArgumentError
     end
 
     it 'should find proper lines' do
-      lines = MdSpell::TextLine.scan(simple_md)
+      lines = MdSpell::TextLine.scan(complete_md)
 
-      expect(lines).to have(3).items
+      expect(lines).to have(18).items
 
-      expect(lines[0].content).to eq 'Simple'
-      expect(lines[1].content).to eq 'markdown'
-      expect(lines[2].content).to eq 'file'
+      expect(lines[0].content).to eq 'First header'
+      expect(lines[1].content).to eq 'Second Header'
+      expect(lines[2].content).to eq 'Third Header'
+      expect(lines[3].content).to eq 'Fourth Header'
+      expect(lines[4].content).to eq 'Fifth Header'
+      expect(lines[5].content).to eq 'First paragraph'
+      expect(lines[6].content).to eq 'Second paragraph'
+      expect(lines[7].content).to eq 'Multi-line'
+      expect(lines[8].content).to eq 'paragraph'
+      expect(lines[9].content).to eq 'Block-quote'
+      expect(lines[10].content).to eq 'Another block-quote'
+      expect(lines[11].content).to eq 'Nested block-quote'
+      expect(lines[12].content).to eq 'Unordered'
+      expect(lines[13].content).to eq 'List'
+      expect(lines[14].content).to eq 'Ordered'
+      expect(lines[15].content).to eq 'List'
+      expect(lines[16].content).to eq 'Multi-line paragraph'
+      expect(lines[17].content).to eq 'as list item'
     end
   end
 end

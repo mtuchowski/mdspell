@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rake', '10.4.2'
 gem 'rspec-collection_matchers', '1.1.2'
 
-gem 'kramdown', '1.8.0'
+gem 'kramdown', github: 'mtuchowski/kramdown', branch: 'gemspec'
 gem 'ffi-aspell', '1.1.0'
 
 gem 'rainbow', '2.0.0'

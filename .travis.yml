@@ -1,8 +1,11 @@
 ---
 language: ruby
-sudo: false
+sudo: required
 cache: bundler
 bundler_args: --without local_development
+before_install:
+  - sudo apt-get update -qq
+  - sudo apt-get install aspell
 script:
   - bundle exec rake spec
   - bundle exec rake lint:style

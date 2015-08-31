@@ -92,7 +92,9 @@ describe MdSpell::TextLine do
   end
 
   context '::scan' do
-    let(:complete_md) { Kramdown::Document.new(File.read('spec/examples/complete.md'), input: 'GFM') }
+    let(:complete_md) do
+      Kramdown::Document.new(File.read('spec/examples/complete.md'), input: 'GFM')
+    end
 
     it 'should expect Kramdown::Document as argument' do
       expect { MdSpell::TextLine.scan }. to raise_error ArgumentError

@@ -65,6 +65,18 @@ describe MdSpell::SpellChecker do
       expect(typos[3].word).to eq 'tobe'
     end
 
-    it 'should use configured language'
+    it 'should use configured language' do
+      prev_language = MdSpell::Configuration[:language]
+      MdSpell::Configuration[:language] = 'es'
+
+      typos = MdSpell::SpellChecker.new('spec/examples/spanish_errors.md').typos
+
+      expect(typos).to have(3).items
+      expect(typos[0].word).to eq 'vivira'
+      expect(typos[1].word).to eq 'Oscar'
+      expect(typos[2].word).to eq 'Wilde'
+
+      MdSpell::Configuration[:language] = prev_language
+    end
   end
 end

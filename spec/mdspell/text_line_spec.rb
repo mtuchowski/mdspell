@@ -103,7 +103,7 @@ describe MdSpell::TextLine do
     it 'should find proper lines' do
       lines = MdSpell::TextLine.scan(complete_md)
 
-      expect(lines).to have(18).items
+      expect(lines).to have(19).items
 
       expect(lines[0].content).to eq 'First header'
       expect(lines[1].content).to eq 'Second Header'
@@ -123,6 +123,7 @@ describe MdSpell::TextLine do
       expect(lines[15].content).to eq 'List'
       expect(lines[16].content).to eq 'Multi-line paragraph'
       expect(lines[17].content).to eq 'as list item'
+      expect(lines[18].content).to eq "Two quotes: That's one, and here's the other"
     end
   end
 end

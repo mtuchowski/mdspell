@@ -24,7 +24,7 @@ module MdSpell
 
     # Return all words in this element.
     def words
-      @content.scan(/[\w\']+/)
+      @content.scan(/[[[:alpha:]]']+/)
     end
 
     # Append Kramdown::Element's content to this element.

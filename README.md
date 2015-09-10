@@ -7,6 +7,8 @@ https://travis-ci.org/mtuchowski/mdspell)
 https://codeclimate.com/github/mtuchowski/mdspell)
 [![Test Coverage](https://codeclimate.com/github/mtuchowski/mdspell/badges/coverage.svg)](
 https://codeclimate.com/github/mtuchowski/mdspell/coverage)
+[![Inline docs](http://inch-ci.org/github/mtuchowski/mdspell.svg?branch=master)](
+http://inch-ci.org/github/mtuchowski/mdspell)
 
 A Ruby markdown spell checking tool.
 

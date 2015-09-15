@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name             = 'mdspell'
-  s.version          = '0.1.2'
+  s.version          = '0.1.3'
 
   s.author           = 'Marek Tuchowski'
   s.email            = 'marek@tuchowski.com.pl'
@@ -14,7 +14,8 @@ Gem::Specification.new do |s|
   s.extra_rdoc_files = %w(README.md LICENSE)
 
   # Manifest
-  s.files            = Dir.glob('{lib,bin}/**/*')
+  s.files            = Dir.glob('lib/**/*')
+  s.executables      << 'mdspell'
   s.test_files       = Dir.glob('{spec}/**/*')
   s.require_paths    = ['lib']
 

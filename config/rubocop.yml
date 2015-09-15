@@ -2,6 +2,8 @@
 # RuboCop tool configuration used by rake lint:style command.
 AllCops:
   DisplayCopNames: true
+  Exclude:
+    - '**/mdspell.gemspec'
 
 Metrics/LineLength:
   Max: 99

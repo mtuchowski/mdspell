@@ -18,6 +18,8 @@ To install from [rubygems.org](http://rubygems.org/), run:
 
 ```console
 $ gem install mdspell
+Successfully installed mdspell-0.1.3
+1 gem installed
 ```
 
 On top of that, make sure that [GNU Aspell](http://aspell.net/) is installed on the system:
@@ -31,22 +33,20 @@ $ sudo pacman -S aspell
 
 ## Usage
 
-To spell-check markdown files, simply run `mdspell` with the filenames as a parameter:
+To spell-check markdown files, simply run `mdspell` with the filename (or directory) as
+a parameter. For each spelling error found, MdSpell will display the misspelled word, filename
+and line number:
 
 ```console
-$ mdspell README.md
-```
-
-To check all markdown files within the directory:
-
-```console
-$ mdspell docs/
-```
-
-For each spelling error found, MdSpell will display the misspelled word, filename and line number:
-
-```console
-./README.md:10: actualy
+$ mdspell README.md spec
+README.md:19: MD014 Dollar signs used before commands without showing output
+README.md:36: MD014 Dollar signs used before commands without showing output
+README.md:42: MD014 Dollar signs used before commands without showing output
+spec/examples/with_errors.md:1: mispelled
+spec/examples/with_errors.md:3: qiute
+spec/examples/with_errors.md:3: actualy
+spec/examples/with_errors.md:5: tobe
+spec/examples/complete.md:24: Unordered
 ```
 
 ## MIT Licensed

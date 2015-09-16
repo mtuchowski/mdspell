@@ -4,6 +4,7 @@ AllCops:
   DisplayCopNames: true
   Exclude:
     - '**/mdspell.gemspec'
+    - 'vendor/**/*'
 
 Metrics/LineLength:
   Max: 99

@@ -23,4 +23,7 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency 'kramdown', '~> 1.8'
   s.add_runtime_dependency 'ffi-aspell', '~> 1.1'
+  s.add_runtime_dependency 'mixlib', '~> 1.5'
+  s.add_runtime_dependency 'mixlib-config', '~> 2.2'
+  s.add_runtime_dependency 'rainbow', '~> 2.0'
 end

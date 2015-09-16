@@ -17,6 +17,8 @@ paragraph
 
 > Block-quote
 
+Third paragraph (with parenthesis).
+
 > Another block-quote
 >
 > > Nested block-quote

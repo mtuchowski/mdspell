@@ -16,7 +16,7 @@ describe MdSpell::SpellChecker do
 
   context '#initialize' do
     it 'should expect filename' do
-      expect {  MdSpell::SpellChecker.new }.to raise_error ArgumentError
+      expect { MdSpell::SpellChecker.new }.to raise_error ArgumentError
     end
 
     it 'should fail if given wrong filename' do

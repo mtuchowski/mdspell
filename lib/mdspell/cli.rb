@@ -33,7 +33,7 @@ module MdSpell
            exit: 0
 
     def run(argv = ARGV)
-      fail ArgumentError, 'expected Array of command line options' unless argv.is_a? Array
+      raise ArgumentError, 'expected Array of command line options' unless argv.is_a? Array
 
       parse_options(argv)
 

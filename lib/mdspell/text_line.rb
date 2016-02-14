@@ -4,7 +4,7 @@ module MdSpell
   # Containing concatenated text from single document line.
   class TextLine
     # Accepted types of elements.
-    ELEMENT_TYPES = [:text, :smart_quote]
+    ELEMENT_TYPES = [:text, :smart_quote].freeze
 
     # Line number of the element in document.
     attr_reader :location
@@ -15,7 +15,7 @@ module MdSpell
     # Create a new TextLine from Kramdown::Element object.
     # @param element [Kramdown::Element]
     def initialize(element)
-      TextLine.assert_element_type element
+      TextLine.send :assert_element_type, element
 
       @content = ''
       @location = element.options[:location]
@@ -31,7 +31,7 @@ module MdSpell
     # @param element [Kramdown::Element]
     # @raise ArgumentError if element is in different location.
     def <<(element)
-      TextLine.assert_element_type element
+      TextLine.send :assert_element_type, element
 
       return self unless ELEMENT_TYPES.include? element.type
       return self unless element.options[:location] == @location
@@ -74,11 +74,11 @@ module MdSpell
       return if value.nil? || value.empty?
 
       value = value.strip
-      if @content.empty? || @content[-1] == "'"
-        @content += value
-      else
-        @content += ' ' + value
-      end
+      @content += if @content.empty? || @content[-1] == "'"
+                    value
+                  else
+                    ' ' + value
+                  end
     end
 
     def appent_quote(type)
@@ -93,8 +93,9 @@ module MdSpell
     # Private class methods
 
     def self.assert_element_type(elem)
-      fail ArgumentError, 'expected Kramdown::Element' unless elem.instance_of? Kramdown::Element
+      raise ArgumentError, 'expected Kramdown::Element' unless elem.instance_of? Kramdown::Element
     end
+    private_class_method :assert_element_type
 
     def self.get_all_textual_elements(elements)
       result = []
@@ -109,5 +110,6 @@ module MdSpell
 
       result
     end
+    private_class_method :get_all_textual_elements
   end
 end

@@ -27,17 +27,17 @@ module MdSpell
     private
 
     def assert_proper_line_type(line)
-      fail ArgumentError, "expected TextLine, got #{line.class.inspect}" unless
+      raise ArgumentError, "expected TextLine, got #{line.class.inspect}" unless
         line.class == TextLine
     end
 
     def assert_proper_word_type(word)
-      fail ArgumentError, "expected String, got #{word.class.inspect}" unless
+      raise ArgumentError, "expected String, got #{word.class.inspect}" unless
         word.class == String
     end
 
     def assert_proper_suggestions_type(suggestions)
-      fail ArgumentError, "expected Array, got #{suggestions.class.inspect}" unless
+      raise ArgumentError, "expected Array, got #{suggestions.class.inspect}" unless
         suggestions.class == Array
     end
   end

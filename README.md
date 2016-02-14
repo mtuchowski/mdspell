@@ -9,6 +9,8 @@ https://codeclimate.com/github/mtuchowski/mdspell)
 https://codeclimate.com/github/mtuchowski/mdspell/coverage)
 [![Inline docs](http://inch-ci.org/github/mtuchowski/mdspell.svg?branch=master)](
 http://inch-ci.org/github/mtuchowski/mdspell)
+[![Dependency Status](https://gemnasium.com/mtuchowski/mdspell.svg)](
+https://gemnasium.com/mtuchowski/mdspell)
 
 A Ruby markdown spell checking tool.
 

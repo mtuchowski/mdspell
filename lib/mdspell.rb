@@ -9,6 +9,7 @@ require 'rainbow'
 
 # This module holds all the MdSpell code (except mdspell shell command).
 module MdSpell
+  # rubocop:disable Metrics/AbcSize
   def self.run(argv)
     cli = MdSpell::CLI.new
     cli.run argv
@@ -23,6 +24,8 @@ module MdSpell
         error "#{spell_checker.filename}:#{typo.line.location}: #{typo.word}"
       end
     end
+
+    exit_if_had_errorss
   end
 
   # Private class methods
@@ -33,7 +36,16 @@ module MdSpell
   private_class_method :verbose
 
   def self.error(str)
+    @had_errors = true
     puts Rainbow(str).red
   end
   private_class_method :error
+
+  def self.exit_if_had_errorss
+    if @had_errors
+      # If exit will be suppressed (line in tests or using at_exit), we need to clean @had_errors
+      @had_errors = false
+      exit(1)
+    end
+  end
 end

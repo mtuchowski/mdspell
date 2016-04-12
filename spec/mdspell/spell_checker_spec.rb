@@ -1,8 +1,12 @@
 describe MdSpell::SpellChecker do
   let(:simple) { MdSpell::SpellChecker.new('spec/examples/simple.md') }
   let(:with_errors) { MdSpell::SpellChecker.new('spec/examples/with_errors.md') }
-  let(:from_stdin) do
+  let(:from_stdin_without_errors) do
     allow(STDIN).to receive(:read) { '# Header' }
+    MdSpell::SpellChecker.new('-')
+  end
+  let(:from_stdin_with_errors) do
+    allow(STDIN).to receive(:read) { 'actualy' }
     MdSpell::SpellChecker.new('-')
   end
 
@@ -37,7 +41,7 @@ describe MdSpell::SpellChecker do
 
     context 'if initialized from stdin' do
       it "should return 'stdin'" do
-        expect(from_stdin.filename).to eq 'stdin'
+        expect(from_stdin_without_errors.filename).to eq 'stdin'
       end
     end
   end
@@ -52,7 +56,7 @@ describe MdSpell::SpellChecker do
   context '#typos' do
     it 'should return empty array if there are no errors' do
       expect(simple.typos).to have(0).items
-      expect(from_stdin.typos).to have(0).items
+      expect(from_stdin_without_errors.typos).to have(0).items
     end
 
     it 'should return proper results' do
@@ -63,6 +67,11 @@ describe MdSpell::SpellChecker do
       expect(typos[1].word).to eq 'qiute'
       expect(typos[2].word).to eq 'actualy'
       expect(typos[3].word).to eq 'tobe'
+
+      typos = from_stdin_with_errors.typos
+
+      expect(typos).to have(1).items
+      expect(typos[0].word).to eq 'actualy'
     end
 
     it 'should use configured language' do

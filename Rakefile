@@ -1,6 +1,7 @@
 require 'rubocop/rake_task'
 require 'reek/rake/task'
 require 'rspec/core/rake_task'
+require 'bundler/gem_tasks'
 
 namespace :lint do
   RuboCop::RakeTask.new('style') do |task|

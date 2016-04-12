@@ -24,6 +24,9 @@ require 'rspec/collection_matchers'
 require 'mdspell'
 
 RSpec.configure do |config|
+  # Common hooks
+  config.before(:each) { MdSpell::Configuration.reset }
+
   # rspec-expectations config goes here.
   config.expect_with :rspec do |expectations|
     # This option will default to `true` in RSpec 4. It makes the `description` and

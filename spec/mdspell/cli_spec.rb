@@ -2,10 +2,6 @@ describe MdSpell::CLI do
   it { is_expected.to respond_to :run }
   it { is_expected.to respond_to :files }
 
-  after(:all) do
-    MdSpell::Configuration.reset
-  end
-
   context '#run' do
     it 'should expect command line options array' do
       [nil, 'string', 42].each do |argument|

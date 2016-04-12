@@ -1,12 +1,4 @@
 describe MdSpell::Configuration do
-  before(:each) do
-    MdSpell::Configuration.reset
-  end
-
-  after(:all) do
-    MdSpell::Configuration.reset
-  end
-
   def run_app(args = [])
     MdSpell::CLI.new.run(args)
   end

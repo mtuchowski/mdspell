@@ -32,10 +32,10 @@ module MdSpell
            proc: proc { puts MdSpell::VERSION },
            exit: 0
 
-    def run(argv = ARGV)
-      raise ArgumentError, 'expected Array of command line options' unless argv.is_a? Array
+    def run(options)
+      raise ArgumentError, 'expected Array of command line options' unless options.is_a? Array
 
-      parse_options(argv)
+      parse_options(options)
 
       # Load optional config file if it's present.
       if config[:config_file]

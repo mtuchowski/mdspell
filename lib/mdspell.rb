@@ -9,9 +9,9 @@ require 'rainbow'
 
 # This module holds all the MdSpell code (except mdspell shell command).
 module MdSpell
-  def self.run
+  def self.run(argv)
     cli = MdSpell::CLI.new
-    cli.run
+    cli.run argv
 
     # Spell-check each file.
     cli.files.each do |filename|

@@ -7,4 +7,4 @@ rescue LoadError
   require 'mdspell'
 end
 
-MdSpell.run
+MdSpell.run ARGV

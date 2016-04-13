@@ -16,7 +16,6 @@ Gem::Specification.new do |s|
   # Manifest
   s.files            = Dir.glob('lib/**/*')
   s.executables      << 'mdspell'
-  s.test_files       = Dir.glob('{spec}/**/*')
   s.require_paths    = ['lib']
 
   s.required_ruby_version = '>= 2.0.0'
@@ -26,4 +25,6 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'mixlib-cli', '~> 1.5'
   s.add_runtime_dependency 'mixlib-config', '~> 2.2'
   s.add_runtime_dependency 'rainbow', '~> 2.0'
+
+  s.add_development_dependency('bundler', '~> 1.3')
 end

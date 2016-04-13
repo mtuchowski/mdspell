@@ -19,7 +19,7 @@ end
 namespace :docs do
   desc 'Check markdown files style'
   task :lint do
-    system 'mdl . -gws config/mdl'
+    system 'mdl -gws config/mdl README.md'
   end
 end
 

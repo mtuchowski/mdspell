@@ -1,14 +1,9 @@
 source 'https://rubygems.org'
 
+gemspec
+
 gem 'rake', '~> 10.5'
 gem 'rspec-collection_matchers', '~> 1.1'
-
-gem 'kramdown', '~> 1.9'
-gem 'ffi-aspell', '~> 1.1'
-
-gem 'rainbow', '~> 2.1'
-gem 'mixlib-cli', '~> 1.5'
-gem 'mixlib-config', '~> 2.2'
 
 gem 'rspec', '~> 3.4'
 

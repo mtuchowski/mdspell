@@ -1,6 +1,7 @@
 describe MdSpell do
   let(:simple) { 'spec/examples/simple.md' }
   let(:with_errors) { 'spec/examples/with_errors.md' }
+  let(:ignored) { 'mispelled,qiute,actualy,tobe' }
 
   it { is_expected.to respond_to :run }
 
@@ -48,6 +49,10 @@ describe MdSpell do
           allow(STDIN).to receive(:read) { 'actualy' }
           run_safely ['-']
         end.to output(/actualy/).to_stdout
+      end
+
+      it 'should be able to ignore them' do
+        expect { subject.run ['-i', ignored, with_errors] }.to_not raise_error
       end
     end
   end

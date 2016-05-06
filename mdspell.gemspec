@@ -15,8 +15,8 @@ Gem::Specification.new do |s|
 
   # Manifest
   s.files            = Dir.glob('lib/**/*')
-  s.executables      << 'mdspell'
-  s.require_paths    = ['lib']
+  s.executables << 'mdspell'
+  s.require_paths = ['lib']
 
   s.required_ruby_version = '>= 2.0.0'
 

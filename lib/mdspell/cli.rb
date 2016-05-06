@@ -17,6 +17,12 @@ module MdSpell
            long: '--language LANG',
            description: 'Set documents language'
 
+    option :ignored,
+           short: '-i IGNORED1,IGNORED2,...',
+           long: '--ignored IGNORED1,IGNORED2,...',
+           description: 'CSV of expressions to be ignored',
+           proc: proc { |csv| csv.split(',') }
+
     option :verbose,
            short: '-v',
            long: '--[no-]verbose',
@@ -35,8 +41,10 @@ module MdSpell
     def run(options)
       raise ArgumentError, 'expected Array of command line options' unless options.is_a? Array
 
-      parse_options(options)
+      # Start clean
+      MdSpell::Configuration.reset
 
+      parse_options(options)
       # Load optional config file if it's present.
       if config[:config_file]
         config_filename = File.expand_path(config[:config_file])

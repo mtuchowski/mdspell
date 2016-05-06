@@ -51,6 +51,27 @@ spec/examples/with_errors.md:5: tobe
 spec/examples/complete.md:24: Unordered
 ```
 
+### Ignore lists
+
+In some cases, there may be words that are legitimately not in the dictionary you are using because they are proper nouns, or obscure technical terms.
+
+You may specify words (or even regular expressions) to ignore via the --ignored flag:
+
+```
+mdspell README.md --ignored config,mdspell,ruby.*,file.ame
+```
+
+Likewise, you may specify this in a config file
+
+```
+ignored:
+- expr1
+- word2
+...
+```
+
+Please note that you should take care to use non-greedy, precise, regular expressions as to not mask legitimate spelling errors.
+
 ## MIT Licensed
 
 See [LICENSE](https://github.com/mtuchowski/mdspell/blob/master/LICENSE) file for full license

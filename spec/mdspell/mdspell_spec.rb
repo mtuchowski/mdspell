@@ -52,7 +52,7 @@ describe MdSpell do
       end
 
       it 'should be able to ignore them' do
-        expect { subject.run [ '-i', ignored, with_errors] }.to_not raise_error
+        expect { subject.run ['-i', ignored, with_errors] }.to_not raise_error
       end
     end
   end

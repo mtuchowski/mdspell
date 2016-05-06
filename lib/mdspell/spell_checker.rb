@@ -29,11 +29,10 @@ module MdSpell
     # Returns found spelling errors.
     def typos
       results = []
-      ignored = Regexp.new(Configuration[:ignored].join('|'),  Regexp::EXTENDED | Regexp::IGNORECASE) unless Configuration[:ignored].empty?
       FFI::Aspell::Speller.open(Configuration[:language]) do |speller|
         TextLine.scan(document).each do |line|
           line.words.each do |word|
-            next if ignored =~ word
+            next if ignored? word
             unless speller.correct? word
               results << Typo.new(line, word, speller.suggestions(word))
             end
@@ -42,6 +41,25 @@ module MdSpell
       end
 
       results
+    end
+
+    private
+
+    def ignored?(word)
+      # For each ignored word / expression, join them together with
+      # An atomic grouping:
+      # http://ruby-doc.org/core-2.1.1/Regexp.html#class-Regexp-label-Atomic+Grouping
+      # And an alternation using the '|' character:
+      # http://ruby-doc.org/core-2.1.1/Regexp.html#class-Regexp-label-Alternation
+      # Compile it the result into a single regular expression,
+      # and save it as an instance variable so we don't need to recompile.
+      return false if Configuration[:ignored].empty?
+      @ignored ||= begin
+        Regexp.new(Configuration[:ignored].map do |e|
+          "(?>#{e})"
+        end.join('|'), Regexp::EXTENDED | Regexp::IGNORECASE)
+      end
+      @ignored =~ word
     end
   end
 end

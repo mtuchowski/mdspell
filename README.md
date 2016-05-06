@@ -55,10 +55,10 @@ spec/examples/complete.md:24: Unordered
 
 In some cases, there may be words that are legitimately not in the dictionary you are using because they are proper nouns, or obscure technical terms.
 
-You may specify words (or even regular expresseions) to ignore via the --ignored flag:
+You may specify words (or even regular expressions) to ignore via the --ignored flag:
 
 ```
-mdspell README.md --ignored mispelled,qiute,actualy,tobe,mdspell,ruby.*,file.ame
+mdspell README.md --ignored config,mdspell,ruby.*,file.ame
 ```
 
 Likewise, you may specify this in a config file

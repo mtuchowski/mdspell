@@ -21,7 +21,7 @@ module MdSpell
            short: '-i IGNORED1,IGNORED2,...',
            long: '--ignored IGNORED1,IGNORED2,...',
            description: 'CSV of expressions to be ignored',
-           proc: Proc.new { |csv| csv.split(',') }
+           proc: proc { |csv| csv.split(',') }
 
     option :verbose,
            short: '-v',

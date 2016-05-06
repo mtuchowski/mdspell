@@ -29,10 +29,11 @@ module MdSpell
     # Returns found spelling errors.
     def typos
       results = []
-
+      ignored = Regexp.new(Configuration[:ignored].join('|'),  Regexp::EXTENDED | Regexp::IGNORECASE) unless Configuration[:ignored].empty?
       FFI::Aspell::Speller.open(Configuration[:language]) do |speller|
         TextLine.scan(document).each do |line|
           line.words.each do |word|
+            next if ignored =~ word
             unless speller.correct? word
               results << Typo.new(line, word, speller.suggestions(word))
             end

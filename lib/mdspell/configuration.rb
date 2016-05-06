@@ -9,6 +9,7 @@ module MdSpell
 
     default :config_file, '~/.mdspell'
     default :language, 'en_US'
+    default :ignored, []
     default :verbose, false
     default :version, VERSION
   end
